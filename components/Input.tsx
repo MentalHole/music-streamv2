@@ -13,6 +13,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(({
   return (
     <input
       type={type}
+      lang="en"
       className={twMerge(
         `
         flex 

@@ -1,30 +1,13 @@
-// import getSongs from "@/actions/getSongs";
+import getSongs from "@/actions/getSongs";
 import Header from "@/components/Header";
 import ListItem from "@/components/ListItem";
 
 import PageContent from "./components/PageContent";
 
+export const revalidate = 0;
+
 export default async function Home() {
-  // const songs = await getSongs();
-  const songs = [
-    {
-      id: "0",
-      user_id: "1245",
-      author: "Imagine Dragons",
-      title: "Natural",
-      song_path: "@/song-files/all_of_me",
-      image_path: "@/song-files/all_of_me_image"
-    },
-    {
-      id: "1",
-      user_id: "1245",
-      author: "Imagine Dragons",
-      title: "Demons",
-      song_path: "@/song-files/all_of_me",
-      image_path: "../../song-files/all_of_me_image"
-    },
-    
-  ]
+  const songs = await getSongs();
 
   return (
     <div

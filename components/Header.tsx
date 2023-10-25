@@ -5,7 +5,7 @@ import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 import { useRouter } from "next/navigation";
 import { FaUserAlt } from "react-icons/fa";
 import { useSupabaseClient } from '@supabase/auth-helpers-react';
-// import { toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 
@@ -36,9 +36,9 @@ const Header: React.FC<HeaderProps> = ({
     player.reset();
     router.refresh();
 
-    // if (error) {
-    //   toast.error(error.message);
-    // }
+    if (error) {
+      toast.error(error.message);
+    }
   }
 
   return (
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({
       className={twMerge(`
         h-fit 
         bg-gradient-to-b 
-        from-[#af22c5]
+        from-megaPurple
         p-6
         `,
         className
