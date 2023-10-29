@@ -2,6 +2,7 @@
 
 import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
+import { AiFillAliwangwang } from "react-icons/ai"
 import { twMerge } from "tailwind-merge";
 import { usePathname } from "next/navigation";
 
@@ -26,7 +27,7 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
     {
       icon: HiHome,
       label: 'Home',
-      active: pathname !== '/search',
+      active: pathname === '/',
       href: '/'
     },
     {
@@ -35,6 +36,13 @@ const Sidebar = ({ children, songs }: SidebarProps) => {
       href: '/search',
       active: pathname === '/search'
     },
+    {
+      icon: AiFillAliwangwang,
+      label: 'AI ChatBot',
+      href: '/chatbot',
+      active: pathname === '/chatbot'
+    },
+
   ], [pathname]);
 
   return (
