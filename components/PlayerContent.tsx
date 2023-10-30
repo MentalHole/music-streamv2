@@ -186,10 +186,9 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         </div>
 
         <div className="hidden md:flex w-full justify-end pr-2">
-          <div className="flex items-center gap-x-2 w-[120px]">
+          <div className="flex items-center cursor-pointer gap-x-2 w-[120px]">
             <VolumeIcon 
               onClick={toggleMute} 
-              className="cursor-pointer" 
               size={34} 
             />
             <Slider 

@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         "megaPurple": "#af22c5"
-      }
+      },
     },
   },
   plugins: [],

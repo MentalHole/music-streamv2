@@ -29,7 +29,7 @@ const ChatBot: React.FC<ChatBotProps> = ({chatParams}: ChatBotProps) => {
                     <ChatInput />
                 </div>
             </Header>
-            <ChatContent userText={chatParams.text}/>
+            <ChatContent/>
         </div>
     );
 };

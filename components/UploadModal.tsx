@@ -97,7 +97,7 @@ const UploadModal = () => {
         .insert({
           user_id: user.id,
           title: values.title,
-          author: values.author,
+          artist: values.artist,
           image_path: imageData.path,
           song_path: songData.path
         });
@@ -138,7 +138,7 @@ const UploadModal = () => {
         <Input
           id="author"
           disabled={isLoading}
-          {...register('author', { required: true })}
+          {...register('artist', { required: true })}
           placeholder="Song author"
         />
         <div>

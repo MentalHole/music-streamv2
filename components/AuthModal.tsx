@@ -32,15 +32,6 @@ const AuthModal = () => {
         }
     };
 
-    const views: { id: ViewType; title: string }[] = [
-        { id: "sign_in", title: "Sign In" },
-        { id: "sign_up", title: "Sign Up" },
-        { id: "magic_link", title: "Magic Link" },
-        { id: "forgotten_password", title: "Forgotten Password" },
-        { id: "update_password", title: "Update Password" },
-        { id: "verify_otp", title: "Verify Otp" },
-    ];
-    const [view, setView] = useState(views[0])
     return (
         <Modal
             title="Welcome back"
@@ -48,34 +39,6 @@ const AuthModal = () => {
             isOpen={isOpen}
             onChange={onChange}
         >
-            <div className="flex flex-col gap-6">
-                <div className="text-scale-1200 text-base">Component View</div>
-                <div className="flex items-center gap-3">
-                    <div>
-                        <div className="relative inline-flex self-center">
-                            <select
-                                defaultValue={view.id}
-                                onChange={(e) => {
-                                    const vw =
-                                        views
-                                            .filter(
-                                                (v) => v.id === e.target.value
-                                            )
-                                            .pop() ?? view;
-                                    setView(vw);
-                                }}
-                                className="text-lg rounded border-2 border-blue-700 text-gray-600 pl-5 pr-10 h-12 bg-white hover:border-gray-400 appearance-none"
-                            >
-                                {views.map((v) => (
-                                    <option key={v.id} value={v.id}>
-                                        {v.title}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <Auth
                 supabaseClient={supabaseClient}
                 providers={["github", "spotify"]}

@@ -21,11 +21,13 @@ const Player = () => {
       className="
         fixed 
         bottom-0 
-        bg-black 
+        bg-neutral-900 
         w-full 
+        mx-2
         py-2 
-        h-[80px] 
         px-4
+        h-[80px] 
+        rounded-md
       "
     >
       <PlayerContent key={songUrl} song={song} songUrl={songUrl} />

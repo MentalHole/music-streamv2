@@ -12,7 +12,7 @@ import { BiSearch } from "react-icons/bi";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import usePlayer from "@/hooks/usePlayer";
-
+import { AiFillAliwangwang } from "react-icons/ai"
 import Button from "./Button";
 
 interface HeaderProps {
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({
     <div
       className={twMerge(`
         h-fit 
-        bg-gradient-to-b 
+        bg-gradient-to-b
         from-megaPurple
         p-6
         `,
@@ -72,7 +72,6 @@ const Header: React.FC<HeaderProps> = ({
             onClick={() => router.forward()} 
             className="
               rounded-full 
-              bg-black 
               flex 
               items-center 
               justify-center 
@@ -116,6 +115,22 @@ const Header: React.FC<HeaderProps> = ({
             "
           >
             <BiSearch className="text-black" size={20} />
+          </button>
+          <button 
+            onClick={() => router.push('/chatbot')} 
+            className="
+              rounded-full 
+              p-2 
+              bg-white 
+              flex 
+              items-center 
+              justify-center 
+              cursor-pointer 
+              hover:opacity-75 
+              transition
+            "
+          >
+            <AiFillAliwangwang className="text-black" size={20} />
           </button>
         </div>
         <div className="flex justify-between items-center gap-x-4">
