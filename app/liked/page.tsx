@@ -1,27 +1,11 @@
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import getLikedSongs from "@/actions/getLikedSongs";
 import Header from "@/components/Header";
-import { Song } from "@/types";
 import LikedContent from "./components/LikedContent";
 
 export const revalidate = 0;
 const Liked = async () => {
-  const [songs, setSongs] = useState(Song[]);
-
-  useEffect(() => {
-    const fetchLikedSongs = async () => {
-      try {
-        const likedSongs = await getLikedSongs(); // Fetch liked songs
-        setSongs(likedSongs);
-      } catch (error) {
-        // Handle error, perhaps set an error state
-        console.error("Error fetching liked songs: ", error);
-      }
-    };
-
-    fetchLikedSongs();
-  }, []); // Empty dependency array to execute once on mount
+  const songs = await getLikedSongs();
 
   return (
     <div 

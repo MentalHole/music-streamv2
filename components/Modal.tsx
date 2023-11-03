@@ -5,7 +5,6 @@ interface ModalProps {
   isOpen: boolean;
   onChange: (open: boolean) => void;
   title: string;
-  description: string;
   children: React.ReactNode;
 }
 
@@ -13,7 +12,6 @@ const Modal: React.FC<ModalProps> = ({
   isOpen,
   onChange,
   title,
-  description,
   children
 }) => {
   return ( 
@@ -59,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({
           >
             {title}
           </Dialog.Title>
-          <Dialog.Description 
+          {/* <Dialog.Description 
             className="
               mb-5 
               text-sm 
@@ -67,8 +65,7 @@ const Modal: React.FC<ModalProps> = ({
               text-center
             "
           >
-            {description}
-          </Dialog.Description>
+          </Dialog.Description> */}
           <div>
             {children}
           </div>

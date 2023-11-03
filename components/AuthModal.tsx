@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Auth } from "@supabase/auth-ui-react";
-import { ThemeSupa, supabase, ViewType } from "@supabase/auth-ui-shared";
+import { ThemeSupa } from "@supabase/auth-ui-shared";
 import {
     useSessionContext,
     useSupabaseClient,
@@ -34,8 +34,7 @@ const AuthModal = () => {
 
     return (
         <Modal
-            title="Welcome back"
-            description="Login to your account."
+            title="Login or Sign Up"
             isOpen={isOpen}
             onChange={onChange}
         >
