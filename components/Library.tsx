@@ -37,7 +37,7 @@ const Library: React.FC<LibraryProps> = ({
 
     return uploadModal.onOpen();
   }
-// https://api.spotify.com/v1/me/albums
+
   return ( 
     <div className="flex flex-col">
       <div className="flex items-center justify-between px-5 pt-4">

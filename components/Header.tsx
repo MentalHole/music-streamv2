@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({
 
   const supabaseClient = useSupabaseClient();
   const { user } = useUser();
-
+  
   const handleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
     player.reset();
@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({
       toast.error(error.message);
     }
   }
-
+  
   return (
     <div
       className={twMerge(`
@@ -153,7 +153,10 @@ const Header: React.FC<HeaderProps> = ({
             <>
               <div>
                 <Button 
-                  onClick={authModal.onOpen} 
+                  onClick={() => {
+                    authModal.newUser=true
+                    authModal.onOpen();
+                  }}  
                   className="
                     bg-transparent 
                     text-neutral-300 
@@ -165,7 +168,10 @@ const Header: React.FC<HeaderProps> = ({
               </div>
               <div>
                 <Button 
-                  onClick={authModal.onOpen} 
+                  onClick={() => {
+                    authModal.newUser=false
+                    authModal.onOpen();
+                  }}  
                   className="bg-white px-6 py-2"
                 >
                   Log in
