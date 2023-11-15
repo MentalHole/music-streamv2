@@ -2,11 +2,14 @@ import Image from "next/image";
 import getLikedSongs from "@/actions/getLikedSongs";
 import Header from "@/components/Header";
 import LikedContent from "./components/LikedContent";
+import getTopTracks from "@/actions/getTopTracks";
 
 export const revalidate = 0;
 const Liked = async () => {
   const songs = await getLikedSongs();
-
+  const topSongs = await getTopTracks()
+  console.log(topSongs);
+  
   return (
     <div 
       className="
