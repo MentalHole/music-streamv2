@@ -7,33 +7,60 @@ import { useRouter } from "next/navigation";
 import useDebounce from "@/hooks/useDebounce";
 
 import Input from "@/components/Input";
+import Button from "@/components/Button";
 
 const ChatInput = () => {
   const router = useRouter();
-  const [value, setValue] = useState<string>('');
-  const debouncedValue = useDebounce<string>(value, 500);
+  const [userInput, setUserInput] = useState<string>("");
+  const [botResponse, setBotResponse] = useState<string>("");
 
-  useEffect(() => {
-    const query = {
-      title: debouncedValue,
-    };
+  const sendMessageToServer = () => {
+    fetch("http://localhost:3000/api/chatbot", {
+      method: "POST",
+      headers: { "Content-Type":"application/json"}, 
+      body: JSON.stringify({
+        message: userInput,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Обновляем состояние с ответом от сервера
+        setBotResponse(data.message);
+        console.log(data.message);
+      })
+      .catch((error) => {
+        console.error("Ошибка:", error);
+      });
+  };
 
-    const url = qs.stringifyUrl({
-      url: '/chatbot',
-      query
-    });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput(event.target.value); // Обновляем состояние с введенным сообщением при изменении инпута
+  };
 
-    router.push(url);
-  }, [debouncedValue, router]);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log("UserInput: " + userInput)
+    event.preventDefault(); // Предотвращаем перезагрузку страницы при отправке формы
+    sendMessageToServer(); // Вызываем функцию для отправки сообщения на сервер
+    setUserInput(""); // Очищаем состояние с введенным сообщением
+  };
 
-  return ( 
-    <Input 
-      placeholder="What is your mood today?"
-      value={value}
-      type={"submit"}
-      onSubmit={(e) => setValue((e.target as HTMLInputElement).value)}
-    />
+  return (
+    <div>
+      <form className="flex" onSubmit={handleSubmit}>
+        <Input
+          className=" rounded-l-md"
+          type="text"
+          placeholder="What is your mood today?"
+          value={userInput}
+          onChange={handleChange}
+        />
+        <Button type="submit" className="flex-1 rounded-r">
+          Submit
+        </Button>
+      </form>
+      <p>{botResponse}</p>
+    </div>
   );
-}
- 
+};
+
 export default ChatInput;

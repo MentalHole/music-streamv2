@@ -23,13 +23,13 @@ const ChatBot: React.FC<ChatBotProps> = ({chatParams}: ChatBotProps) => {
         >
             <Header className="from-bg-neutral-900">
                 <div className="mb-2 flex flex-col gap-y-6">
-                    <h1 className="text-white text-3xl font-semibold">
+                    <h3 className="text-white text-3xl font-semibold">
                         AI ChatBot
-                    </h1>
+                    </h3>
                     <ChatInput />
                 </div>
             </Header>
-            <ChatContent/>
+            <ChatContent />
         </div>
     );
 };
