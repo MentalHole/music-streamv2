@@ -35,7 +35,7 @@ const AuthModal = () => {
 
     return (
         <Modal
-            title={newUser ? "Sign Up" : "Login"}
+            title={newUser ? "Sign up" : "Sign in"}
             isOpen={isOpen}
             onChange={onChange}
         >
@@ -43,7 +43,7 @@ const AuthModal = () => {
                 supabaseClient={supabaseClient}
                 view={newUser ? "sign_up" : "sign_in"}
                 providers={["github", "spotify"]}
-                magicLink={true}
+                magicLink={false}
                 queryParams={{
                     access_type: "code",
                 }}
