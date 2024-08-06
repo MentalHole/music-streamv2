@@ -4,7 +4,8 @@ const nextConfig = {
         domains: [
             "posnnzqenxahwidzddbh.supabase.co",
         ]
-    }
+    },
+    output: 'standalone'
 }
 
 module.exports = nextConfig

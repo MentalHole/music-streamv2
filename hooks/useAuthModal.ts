@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface AuthModalStore {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface AuthModalStore {
 
 const useAuthModal = create<AuthModalStore>((set) => ({
   isOpen: false,
-  newUser: true||false,
+  newUser: true || false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }));
