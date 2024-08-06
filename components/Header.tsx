@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({
             onClick={() => router.back()} 
             className="
               rounded-full 
-              bg-black 
+              bg-neutral-900
               flex 
               items-center 
               justify-center 
@@ -138,13 +138,13 @@ const Header: React.FC<HeaderProps> = ({
             <div className="flex gap-x-4 items-center">
               <Button 
                 onClick={handleLogout} 
-                className="bg-white px-6 py-2"
+                className="bg-white px-6 py-2 rounded"
               >
                 Logout
               </Button>
               <Button 
                 onClick={() => router.push('/account')} 
-                className="bg-white"
+                className="bg-white rounded"
               >
                 <FaUserAlt />
               </Button>
